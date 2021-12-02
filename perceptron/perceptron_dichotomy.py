@@ -2,6 +2,7 @@
 #Author:Dodo
 #Date:2018-11-15
 #Email:lvtengchao@pku.edu.cn
+# modified by spy: 1) 文件读取路径
 
 '''
 数据集：Mnist
@@ -15,6 +16,7 @@
 
 import numpy as np
 import time
+from tqdm import tqdm  # 增加进度条
 
 def loadData(fileName):
     '''
@@ -28,7 +30,7 @@ def loadData(fileName):
     # 打开文件
     fr = open(fileName, 'r')
     # 将文件按行读取
-    for line in fr.readlines():
+    for line in tqdm(fr.readlines()):
         # 对每一行数据按切割福','进行切割，返回字段列表
         curLine = line.strip().split(',')
 
@@ -140,12 +142,12 @@ if __name__ == '__main__':
     start = time.time()
 
     #获取训练集及标签
-    trainData, trainLabel = loadData('../Mnist/mnist_train.csv')
+    trainData, trainLabel = loadData('Mnist\mnist_train.csv')
     #获取测试集及标签
-    testData, testLabel = loadData('../Mnist/mnist_test.csv')
+    testData, testLabel = loadData('Mnist\mnist_test.csv')
 
     #训练获得权重
-    w, b = perceptron(trainData, trainLabel, iter = 30)
+    w, b = perceptron(trainData, trainLabel, iter = 30)  
     #进行测试，获得正确率
     accruRate = model_test(testData, testLabel, w, b)
 
