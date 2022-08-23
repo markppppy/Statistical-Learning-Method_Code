@@ -15,6 +15,7 @@
 
 import time
 import numpy as np
+import os 
 
 def loadData(fileName):
     '''
@@ -297,11 +298,11 @@ def model_test(testDataList, testLabelList, tree):
 if __name__ == '__main__':
     #开始时间
     start = time.time()
-
+    print(os.getcwd())
     # 获取训练集
-    trainDataList, trainLabelList = loadData('../Mnist/mnist_train.csv')
+    trainDataList, trainLabelList = loadData('./Mnist/mnist_train.csv')
     # 获取测试集
-    testDataList, testLabelList = loadData('../Mnist/mnist_test.csv')
+    testDataList, testLabelList = loadData('./Mnist/mnist_test.csv')
 
     #创建决策树
     print('start create tree')
