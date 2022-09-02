@@ -147,11 +147,11 @@ if __name__ == '__main__':
 
     # 获取训练集及标签
     print('start read transSet')
-    trainData, trainLabel = loadData('../Mnist/mnist_train.csv')
+    trainData, trainLabel = loadData('./Mnist/mnist_train.csv')
 
     # 获取测试集及标签
     print('start read testSet')
-    testData, testLabel = loadData('../Mnist/mnist_test.csv')
+    testData, testLabel = loadData('./Mnist/mnist_test.csv')
 
     # 开始训练，学习w
     print('start to train')
